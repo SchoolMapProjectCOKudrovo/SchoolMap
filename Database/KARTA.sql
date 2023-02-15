@@ -1,5 +1,7 @@
 use [KARTA]
 
+--создание всех таблиц
+
 CREATE TABLE [USER]
 (
 [Id] int primary key identity,
@@ -42,6 +44,34 @@ CREATE TABLE [TASK]
 [IsDone] bit
 )
 
+--создание процедур
+CREATE PROCEDURE GetEventsByUser
+@userid int
+as
+SELECT U.[Id], U.[Name], E.[Name] AS EventName, E.[Location], E.[Description], E.[IsSchool] FROM [USER] AS U
+inner join [EVENT] AS E ON E.[UserId] = U.[Id]
+WHERE U.[Id] = @userid
+
+--удаление всех таблиц
+DROP TABLE [USER]
+DROP TABLE [EVENT]
+DROP TABLE [SHEDULE]
+DROP TABLE [DAYOFWEEK]
+DROP TABLE [TASK]
+
+--выделение всех таблиц
+
+SELECT * FROM [USER]
+SELECT * FROM [EVENT]
+SELECT * FROM [SHEDULE]
+SELECT * FROM [DAYOFWEEK]
+SELECT * FROM [TASK]
+
+--процедуры
+exec GetEventsByUser 1
+
+--примеры
+
 INSERT [USER]
 Values
 ('Gleb', 'qwerty123'),
@@ -52,12 +82,3 @@ Values
 (1, 'Dota2', 'Doma', 'Play Dota with friends', 0),
 (1, 'Geography', '2.2.01', 'Ususal lesson', 1),
 (2, 'Hru hru', 'saray', 'pohrukat', 0)
-
-SELECT * FROM [USER]
-SELECT * FROM [EVENT]
-SELECT * FROM [SHEDULE]
-SELECT * FROM [DAYOFWEEK]
-SELECT * FROM [TASK]
-
-SELECT U.[Name], E.[Id] as EventId, E.[Name] as EventName, E.[Location], E.[Description] from [EVENT] as E
-inner join [USER] as U on U.[Id] = E.[UserId]
