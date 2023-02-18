@@ -1,12 +1,14 @@
 use [KARTA]
 
 --создание всех таблиц
+CREATE DATABASE [KARTA]
 
 CREATE TABLE [USER]
 (
 [Id] int primary key identity,
 [Name] nvarchar(30),
-[Password] nvarchar(30)
+[Password] nvarchar(30),
+[IsDeleted] bit
 )
 
 CREATE TABLE [EVENT]
@@ -44,14 +46,6 @@ CREATE TABLE [TASK]
 [IsDone] bit
 )
 
---создание процедур
-CREATE PROCEDURE GetEventsByUser
-@userid int
-as
-SELECT U.[Id], U.[Name], E.[Name] AS EventName, E.[Location], E.[Description], E.[IsSchool] FROM [USER] AS U
-inner join [EVENT] AS E ON E.[UserId] = U.[Id]
-WHERE U.[Id] = @userid
-
 --удаление всех таблиц
 DROP TABLE [USER]
 DROP TABLE [EVENT]
@@ -68,14 +62,17 @@ SELECT * FROM [DAYOFWEEK]
 SELECT * FROM [TASK]
 
 --процедуры
-exec GetEventsByUser 1
+exec CreateUser 
+exec DeleteUserById 
+exec GetUserList
+exec GetDeletedUserList
 
 --примеры
 
 INSERT [USER]
 Values
-('Gleb', 'qwerty123'),
-('Kabanchig', 'qwerty228')
+('Gleb', 'qwerty123', 0),
+('Kabanchig', 'qwerty228', 0)
 
 INSERT [EVENT]
 Values
