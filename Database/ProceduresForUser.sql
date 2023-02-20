@@ -34,3 +34,10 @@ SELECT U.[Id], U.[Name], U.[Password] FROM [USER] as U
 where U.[IsDeleted] = 1
 
 go
+
+CREATE PROCEDURE FullUserDelete
+@UserId int
+as
+DELETE FROM [USER] where [USER].[IsDeleted] = 1 and [USER].[Id] = @UserId
+
+go

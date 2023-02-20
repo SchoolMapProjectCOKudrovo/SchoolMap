@@ -66,6 +66,7 @@ exec CreateUser
 exec DeleteUserById 
 exec GetUserList
 exec GetDeletedUserList
+exec FullUserDelete
 
 --примеры
 
