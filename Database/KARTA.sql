@@ -23,8 +23,8 @@ CREATE TABLE [SHEDULE]
 (
 [Id] int primary key identity,
 [DayOfWeek] int,
-[StartTime] datetime,
-[EndTime] datetime,
+[StartTime] time,
+[EndTime] time,
 [EventId] int,
 [Date] datetime
 )
@@ -39,7 +39,7 @@ CREATE TABLE [TASK]
 (
 [Id] int primary key identity,
 [SheduleId] int,
-[DayOfWeek] int,
+[DayOfWeekId] int,
 [Description] nvarchar(255),
 [IsDone] bit
 )
@@ -82,3 +82,19 @@ Values
 (1, 'Dota2', 'Doma', 'Play Dota with friends', 0),
 (1, 'Geography', '2.2.01', 'Ususal lesson', 1),
 (2, 'Hru hru', 'saray', 'pohrukat', 0)
+
+INSERT [DAYOFWEEK]
+Values
+('Понедельник'),
+('Вторник'),
+('Среда'),
+('Четверг'),
+('Пятница'),
+('Суббота'),
+('Воскресенье')
+
+INSERT [SHEDULE]
+Values
+(1, '14:30', '21:00', 1, '02/21/23'),
+(2, '15:00', '17:00', 1, '03/21/23'),
+(1, '12:45', '13:00', 2, '02/21/23')
