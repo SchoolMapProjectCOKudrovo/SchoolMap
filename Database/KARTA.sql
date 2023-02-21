@@ -79,8 +79,8 @@ Values
 
 INSERT [EVENT]
 Values
-(1, 'Dota2', 'Doma', 'Play Dota with friends', 0),
-(1, 'Geography', '2.2.01', 'Ususal lesson', 1),
+(1, 'Usual day', 'Doma', '', 0),
+(1, 'School day', 'School', 'Ususal lessons', 1),
 (2, 'Hru hru', 'saray', 'pohrukat', 0)
 
 INSERT [DAYOFWEEK]
@@ -98,3 +98,13 @@ Values
 (1, '14:30', '21:00', 1, '02/21/23'),
 (2, '15:00', '17:00', 1, '03/21/23'),
 (1, '12:45', '13:00', 2, '02/21/23')
+
+INSERT [TASK]
+Values
+(1, 7, 'Play Dota 2', 0),
+(1, 7, 'Poobedat', 0),
+(2, 1, 'Lemozersky', 0),
+(2, 1, 'Russky', 0),
+(2, 1, 'HIMIYA BOZE SPASI', 0),
+(3, 1, 'Hru', 0),
+(3, 2, 'Hru hru', 0)
