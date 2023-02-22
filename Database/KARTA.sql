@@ -69,7 +69,7 @@ exec GetDeletedUserList
 exec FullUserDelete
 
 --процедуры для SHEDULE
-exec CreateShedule
+exec CreateShedule 5, '10:00', '20:00', 1, '02/21/23'
 exec DeleteShedule
 exec GetShedulesByEventId 1
 
