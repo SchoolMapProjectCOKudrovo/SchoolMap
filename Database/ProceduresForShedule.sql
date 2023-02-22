@@ -26,5 +26,7 @@ CREATE PROCEDURE GetShedulesByEventId
 as
 SELECT S.Id, E.[Name] as EventName, S.[DayOfWeek], S.[StartTime], S.[EndTime], S.[Date] FROM [SHEDULE] as S
 inner join [EVENT] as E on E.[Id] = S.[EventId]
+where S.[EventId] = @Id
 
 go
+
