@@ -61,12 +61,17 @@ SELECT * FROM [SHEDULE]
 SELECT * FROM [DAYOFWEEK]
 SELECT * FROM [TASK]
 
---процедуры
+--процедуры для USER
 exec CreateUser 
 exec DeleteUserById 
 exec GetUserList
 exec GetDeletedUserList
 exec FullUserDelete
+
+--процедуры для SHEDULE
+exec CreateShedule
+exec DeleteShedule
+exec GetShedulesByEventId 1
 
 --примеры
 
